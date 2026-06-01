@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS — CET138 Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>CSS</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fullstack.html">Full Stack</a>
+      <a href="html.html">HTML</a>
+      <a href="css.html" class="active">CSS</a>
+      <a href="bootstrap.html">Bootstrap</a>
+      <a href="javascript.html">JavaScript</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <a href="index.html" class="back-btn">← Back to Home</a>
+
+    <div class="content-card">
+      <h2>What is CSS?</h2>
+      <p>CSS (Cascading Style Sheets) controls the <strong>visual presentation</strong> of HTML elements — colours, fonts, spacing, layout, and animations. CSS separates content (HTML) from presentation, making code cleaner and easier to maintain.</p>
+
+      <h3>The Box Model</h3>
+      <p>Every HTML element is a rectangular box with: content, padding, border, and margin.</p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span>
+          <span class="code-file">boxmodel.css</span>
+        </div>
+        <pre>.card {
+  width:         300px;   /* content width */
+  padding:       20px;    /* space inside border */
+  border:        2px solid #2c3e5a;
+  margin:        16px;    /* space outside border */
+  border-radius: 8px;     /* rounded corners */
+}</pre>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>Live Demo — CSS Grid Layout</h2>
+      <p>CSS Grid creates two-dimensional layouts. grid-template-columns: repeat(3, 1fr) creates three equal-width columns.</p>
+
+      <div class="demo-area">
+        <p class="demo-label">Hover over each box</p>
+        <div class="css-grid">
+          <div class="css-box b1">Grid 1</div>
+          <div class="css-box b2">Grid 2</div>
+          <div class="css-box b3">Grid 3</div>
+          <div class="css-box b4">Grid 4</div>
+          <div class="css-box b5">Grid 5</div>
+          <div class="css-box b6">Grid 6</div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span>
+          <span class="code-file">grid.css</span>
+        </div>
+        <pre>.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.grid-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: all 0.25s ease;
+}</pre>
+      </div>
+
+      <div class="explain">
+        <strong>This demonstrates:</strong> display: grid with repeat(3, 1fr) — the 1fr unit means each column takes one equal fraction of the available space. The hover effect uses transform and transition for smooth animation — no JavaScript required.
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>Live Demo — CSS Animations</h2>
+      <p>CSS @keyframes define how an element changes over time. The animation property applies it to an element.</p>
+
+      <div class="demo-area">
+        <p class="demo-label">Pure CSS — no JavaScript</p>
+        <div class="anim-row">
+          <div class="anim-item"><div class="anim-bounce"></div><span class="anim-caption">bounce</span></div>
+          <div class="anim-item"><div class="anim-spin"></div><span class="anim-caption">spin</span></div>
+          <div class="anim-item"><div class="anim-pulse"></div><span class="anim-caption">pulse</span></div>
+          <div class="anim-item"><div class="anim-fade"></div><span class="anim-caption">fade</span></div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span>
+          <span class="code-file">animations.css</span>
+        </div>
+        <pre>@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-28px); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.ball {
+  animation: bounce 1.4s infinite ease-in-out;
+}</pre>
+      </div>
+
+      <div class="explain">
+        <strong>This demonstrates:</strong> The @keyframes rule defines animation states at percentage breakpoints. The animation shorthand sets the name, duration, iteration count, and timing function. All four animations above are CSS-only.
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>CSS Custom Properties (Variables)</h2>
+      <p>CSS variables let you define reusable values once and reference them throughout your stylesheet.</p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span>
+          <span class="code-file">variables.css</span>
+        </div>
+        <pre>:root {
+  --primary-color:  #2c3e5a;
+  --accent-color:   #2980b9;
+  --font-size-base: 1rem;
+  --border-radius:  8px;
+}
+
+.card {
+  background:    var(--primary-color);
+  border-radius: var(--border-radius);
+  font-size:     var(--font-size-base);
+}</pre>
+      </div>
+
+      <div class="explain">
+        <strong>Why use CSS variables?</strong> If you need to change your brand colour, you update one line in :root instead of finding and replacing it across hundreds of CSS rules.
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>
