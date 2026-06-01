@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript — CET138 Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>JavaScript</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fullstack.html">Full Stack</a>
+      <a href="html.html">HTML</a>
+      <a href="css.html">CSS</a>
+      <a href="bootstrap.html">Bootstrap</a>
+      <a href="javascript.html" class="active">JavaScript</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <a href="index.html" class="back-btn">← Back to Home</a>
+
+    <div class="content-card">
+      <h2>What is JavaScript?</h2>
+      <p>JavaScript is the programming language of the web. While HTML provides structure and CSS provides style, JavaScript adds <strong>behaviour and interactivity</strong>. It can respond to user actions, update content without reloading, validate forms, and communicate with servers.</p>
+      <p>JavaScript runs in the browser (client-side) but can also run on servers using <strong>Node.js</strong>, making it a true full stack language.</p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span>
+          <span class="code-file">basics.js</span>
+        </div>
+        <pre>// Variables — let (changeable), const (fixed)
+let   count = 0;
+const name  = "Prashamsha";
+
+// Function with template literal
+function greet(person) {
+  return `Hello, ${person}!`;
+}
+
+// Array and loop
+const skills = ["HTML", "CSS", "JavaScript"];
+skills.forEach(skill => {
+  console.log(skill);
+});
+
+// Conditional
+if (count > 0) {
+  console.log("Positive!");
+} else {
+  console.log("Zero or below.");
+}</pre>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>Live Demo 1 — Counter (DOM Manipulation)</h2>
+      <p>This counter demonstrates how JavaScript stores state in a variable and updates the page by selecting and modifying a DOM element.</p>
+
+      <div class="demo-area">
+        <p class="demo-label">Click the buttons — JavaScript updates the display</p>
+        <div class="counter-wrap">
+          <div class="counter-val" id="counterDisplay">0</div>
+          <div class="counter-btns">
+            <button class="ctrl-btn" onclick="changeCount(1)">+ Increment</button>
+            <button class="ctrl-btn red" onclick="changeCount(-1)">− Decrement</button>
+            <button class="ctrl-btn grey" onclick="changeCount(0)">↺ Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span>
+          <span class="code-file">counter.js</span>
+        </div>
+        <pre>let count = 0;
+
+function changeCount(direction) {
+  if (direction === 0) {
+    count = 0;
+  } else {
+    count += direction;
+  }
+  // DOM manipulation — update the element's text
+  const display = document.getElementById('counterDisplay');
+  display.textContent = count;
+}</pre>
+      </div>
+      <div class="explain">
+        <strong>This demonstrates:</strong> A JavaScript variable (let count) holds state. The function modifies it, then uses document.getElementById() to select the element and updates its textContent — this is called <strong>DOM manipulation</strong>.
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>Live Demo 2 — To-Do List (Events &amp; Dynamic DOM)</h2>
+      <p>This to-do list demonstrates creating new DOM elements dynamically, handling events, and toggling CSS classes with JavaScript.</p>
+
+      <div class="demo-area">
+        <p class="demo-label">Add items, tick them off, and delete them</p>
+        <div class="todo-wrap">
+          <div class="todo-row">
+            <input type="text" class="todo-input" id="todoInput"
+              placeholder="Add a task and press Enter..."
+              onkeydown="if(event.key==='Enter') addTodo()">
+            <button class="todo-add-btn" onclick="addTodo()">Add</button>
+          </div>
+          <ul class="todo-list" id="todoList">
+            <li class="todo-item">
+              <div class="todo-check" onclick="toggleTodo(this)">✓</div>
+              <span class="todo-text">Learn HTML structure and semantics</span>
+              <button class="todo-del" onclick="deleteTodo(this)">✕</button>
+            </li>
+            <li class="todo-item">
+              <div class="todo-check" onclick="toggleTodo(this)">✓</div>
+              <span class="todo-text">Style with CSS Grid and Flexbox</span>
+              <button class="todo-del" onclick="deleteTodo(this)">✕</button>
+            </li>
+            <li class="todo-item">
+              <div class="todo-check" onclick="toggleTodo(this)">✓</div>
+              <span class="todo-text">Understand Bootstrap's grid system</span>
+              <button class="todo-del" onclick="deleteTodo(this)">✕</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span>
+          <span class="code-file">todo.js</span>
+        </div>
+        <pre>function addTodo() {
+  const input = document.getElementById('todoInput');
+  const text  = input.value.trim();
+  if (!text) return;
+
+  const li = document.createElement('li');
+  li.className = 'todo-item';
+  li.innerHTML = `
+    &lt;div class="todo-check" onclick="toggleTodo(this)"&gt;✓&lt;/div&gt;
+    &lt;span class="todo-text"&gt;${text}&lt;/span&gt;
+    &lt;button class="todo-del" onclick="deleteTodo(this)"&gt;✕&lt;/button&gt;
+  `;
+  document.getElementById('todoList').prepend(li);
+  input.value = '';
+  input.focus();
+}
+
+function toggleTodo(btn) {
+  btn.closest('.todo-item').classList.toggle('done');
+  btn.classList.toggle('checked');
+}
+
+function deleteTodo(btn) {
+  btn.closest('.todo-item').remove();
+}</pre>
+      </div>
+      <div class="explain">
+        <strong>This demonstrates:</strong> Dynamic DOM creation with createElement() and innerHTML. classList.toggle() switches CSS classes to change visual state. .closest() traverses the DOM tree to find a parent element. onkeydown detects when Enter is pressed.
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    let count = 0;
+
+    function changeCount(direction) {
+      if (direction === 0) { count = 0; } else { count += direction; }
+      const display = document.getElementById('counterDisplay');
+      display.textContent = count;
+      display.style.color = count > 0 ? '#27ae60' : count < 0 ? '#c0392b' : '#2c3e5a';
+    }
+
+    function addTodo() {
+      const input = document.getElementById('todoInput');
+      const text = input.value.trim();
+      if (!text) return;
+      const li = document.createElement('li');
+      li.className = 'todo-item';
+      li.innerHTML = `
+        <div class="todo-check" onclick="toggleTodo(this)">✓</div>
+        <span class="todo-text">${text}</span>
+        <button class="todo-del" onclick="deleteTodo(this)">✕</button>
+      `;
+      document.getElementById('todoList').prepend(li);
+      input.value = '';
+      input.focus();
+    }
+
+    function toggleTodo(btn) {
+      btn.closest('.todo-item').classList.toggle('done');
+      btn.classList.toggle('checked');
+    }
+
+    function deleteTodo(btn) {
+      btn.closest('.todo-item').remove();
+    }
+  </script>
+
+</body>
+</html>
