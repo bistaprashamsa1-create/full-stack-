@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML — CET138 Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>HTML</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fullstack.html">Full Stack</a>
+      <a href="html.html" class="active">HTML</a>
+      <a href="css.html">CSS</a>
+      <a href="bootstrap.html">Bootstrap</a>
+      <a href="javascript.html">JavaScript</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <a href="index.html" class="back-btn">← Back to Home</a>
+
+    <div class="content-card">
+      <h2>What is HTML?</h2>
+      <p>HTML (HyperText Markup Language) is the standard language for creating web pages. It describes the <strong>structure</strong> of a page using elements represented by tags. Every web page you visit is built on HTML.</p>
+
+      <h3>Semantic HTML</h3>
+      <p>Semantic HTML uses meaningful element names that describe their purpose. This improves accessibility, SEO, and code readability.</p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span>
+          <span class="code-file">structure.html</span>
+        </div>
+        <pre>&lt;!-- Semantic HTML uses meaningful tag names --&gt;
+&lt;header&gt;
+  &lt;nav&gt;
+    &lt;a href="/"&gt;Home&lt;/a&gt;
+    &lt;a href="/about"&gt;About&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h1&gt;Page Heading&lt;/h1&gt;
+    &lt;section&gt;
+      &lt;p&gt;Content goes here...&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/article&gt;
+  &lt;aside&gt;Sidebar / Related links&lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;&copy; 2025 Prashamsha Khadka&lt;/p&gt;
+&lt;/footer&gt;</pre>
+      </div>
+
+      <div class="explain">
+        <strong>Why it matters:</strong> Tags like &lt;header&gt;, &lt;main&gt;, and &lt;footer&gt; help screen readers understand the page (accessibility), help search engines index content better (SEO), and make the code easier to maintain.
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>Live Demo — HTML Table</h2>
+      <p>Tables organise data into rows and columns using &lt;table&gt;, &lt;thead&gt;, &lt;tbody&gt;, &lt;tr&gt;, &lt;th&gt;, and &lt;td&gt; elements.</p>
+
+      <div class="demo-area">
+        <p class="demo-label">Working Example</p>
+        <table class="demo-table">
+          <thead>
+            <tr><th>Technology</th><th>Type</th><th>Used For</th><th>Layer</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>HTML</td><td>Markup Language</td><td>Page structure</td><td>Front-End</td></tr>
+            <tr><td>CSS</td><td>Stylesheet Language</td><td>Styling &amp; layout</td><td>Front-End</td></tr>
+            <tr><td>JavaScript</td><td>Programming Language</td><td>Interactivity</td><td>Front-End</td></tr>
+            <tr><td>Node.js</td><td>Runtime Environment</td><td>Server logic</td><td>Back-End</td></tr>
+            <tr><td>MongoDB</td><td>NoSQL Database</td><td>Data storage</td><td>Database</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="explain">
+        <strong>This demonstrates:</strong> Semantic table structure with &lt;thead&gt; for the header row and &lt;tbody&gt; for data rows. &lt;th&gt; creates header cells and &lt;td&gt; creates data cells. Tables should only be used for tabular data, not for layout.
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>Live Demo — HTML Form Elements</h2>
+      <p>Forms collect input from users. HTML provides a variety of input types for different kinds of data.</p>
+
+      <div class="demo-area">
+        <p class="demo-label">Working Example — try typing in the fields</p>
+        <div class="form-demo">
+          <label for="f-name">Full Name</label>
+          <input type="text" id="f-name" placeholder="e.g. Prashamsha Khadka">
+          <label for="f-email">Email Address</label>
+          <input type="email" id="f-email" placeholder="example@email.com">
+          <label for="f-role">Applying for</label>
+          <select id="f-role">
+            <option>Junior Front-End Developer</option>
+            <option>Junior Back-End Developer</option>
+            <option>Junior Full Stack Developer</option>
+          </select>
+          <label for="f-msg">Cover Letter</label>
+          <textarea id="f-msg" rows="3" placeholder="Tell us about yourself..."></textarea>
+        </div>
+      </div>
+
+      <div class="explain">
+        <strong>This demonstrates:</strong> The for/id pairing between labels and inputs — clicking a label focuses its input, which is important for accessibility. type="email" provides built-in validation, and &lt;textarea&gt; allows multi-line text input.
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>
