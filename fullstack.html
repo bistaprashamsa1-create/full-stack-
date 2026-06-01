@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Stack Development — CET138 Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>What is Full Stack Development?</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fullstack.html" class="active">Full Stack</a>
+      <a href="html.html">HTML</a>
+      <a href="css.html">CSS</a>
+      <a href="bootstrap.html">Bootstrap</a>
+      <a href="javascript.html">JavaScript</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <a href="index.html" class="back-btn">← Back to Home</a>
+
+    <div class="content-card">
+      <h2>What is Full Stack Development?</h2>
+      <p>Full stack development refers to the development of both the <strong>front-end</strong> (client side) and <strong>back-end</strong> (server side) of a web application, including the <strong>database</strong>. A full stack developer is someone who can work across all these layers.</p>
+
+      <h3>The Three Layers</h3>
+
+      <div class="layer-box green">
+        <h4>1. Front-End (Client Side)</h4>
+        <p>This is what the user sees and interacts with in the browser. Technologies used include <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>. Frameworks like React, Vue, and Angular are also commonly used.</p>
+      </div>
+
+      <div class="layer-box orange">
+        <h4>2. Back-End (Server Side)</h4>
+        <p>This is the logic that runs on the server. It processes requests from the front-end and sends back responses. Technologies include <strong>Node.js</strong>, <strong>PHP</strong>, <strong>Python</strong>, and <strong>Java</strong>.</p>
+      </div>
+
+      <div class="layer-box blue">
+        <h4>3. Database</h4>
+        <p>This is where application data is stored and retrieved. Common databases include <strong>MySQL</strong> and <strong>PostgreSQL</strong> (relational/SQL) and <strong>MongoDB</strong> (non-relational/NoSQL).</p>
+      </div>
+
+      <h3>How It All Connects</h3>
+      <p>When a user visits a website, their browser sends an HTTP request to a server. The server runs back-end code to process the request, queries the database if needed, and sends back a response. The browser then renders the HTML, CSS, and JavaScript the user sees.</p>
+
+      <div class="explain">
+        <strong>Example:</strong> When you log in to a website, the front-end sends your username and password to the server. The back-end checks these against the database. If they match, the server sends back a success response and the front-end redirects you to your dashboard.
+      </div>
+
+      <h3>Common Full Stack Technology Combinations</h3>
+      <table class="demo-table" style="margin-top:0.5rem;">
+        <thead>
+          <tr><th>Stack</th><th>Front-End</th><th>Back-End</th><th>Database</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>MEAN</strong></td><td>Angular</td><td>Node.js / Express</td><td>MongoDB</td></tr>
+          <tr><td><strong>MERN</strong></td><td>React</td><td>Node.js / Express</td><td>MongoDB</td></tr>
+          <tr><td><strong>LAMP</strong></td><td>HTML/CSS/JS</td><td>PHP / Apache</td><td>MySQL</td></tr>
+          <tr><td><strong>Django</strong></td><td>HTML/CSS/JS</td><td>Python / Django</td><td>PostgreSQL</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</body>
+</html>
